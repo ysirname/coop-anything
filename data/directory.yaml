@@ -565,6 +565,30 @@
   - https://www.nexusmods.com/bioshock/mods/178
   - https://www.keengamer.com/articles/news/new-game-mod-enables-a-bioshock-multiplayer-co-op-mode/
   checked: '2026-10-25'
+  - game: Uncharted 3: Drake's Deception
+  year: 2011
+  engine: Naughty Dog proprietary (PS3)
+  project: (none found)
+  url: ''
+  other_urls: []
+  kind: gap
+  status: none
+  coop_scope: {}
+  players: unknown
+  networking: unknown
+  open_source: unknown
+  last_activity: unknown
+  qa: none
+  notes: No co-op project exists for the Uncharted 3 campaign. PS3 exclusive, Naughty Dog proprietary engine,
+    closed binary, no decompilation or scripting layer. Campaign is single-player only; the game ships a separate
+    competitive multiplayer mode. Taking Route B (memory-sync co-op): two RPCS3 instances with a bridge program
+    reading/writing each player's state in emulated RAM. See games/uncharted-3/NOTES.md.
+  sources:
+  - https://github.com/cranebeaker/coop-anything
+  checked: '2026-11-15'
+  searched:
+  - 'DIRECTORY.md and games/ in cranebeaker/coop-anything (no Uncharted 3 entry found, 2026-11-15)'
+  - 'Web search for Uncharted 3 co-op mod / multiplayer mod (none found, 2026-11-15)'
 - game: 'S.T.A.L.K.E.R.: Shadow of Chernobyl'
   year: 2007
   engine: X-Ray (xrMPE)
