@@ -55,9 +55,24 @@ Per AGENTS.md ground rule 2: never touch the owner's game install or saves. Copy
 4. ✅ Add a directory entry in `data/directory.yaml` with `kind: gap` — done
 5. **Begin reverse engineering: RPCS3 debugger + Ghidra headless on the EBOOT.BIN** — next
 
+## Tool setup (E: drive — C: has only 14GB free)
+
+| Tool | Location | Status |
+|------|----------|--------|
+| JDK 17 | E:\tools\jdk-17\ | needs install (download Microsoft JDK 17 MSI) |
+| Ghidra | E:\tools\ghidra\ghidra_10.xxx_PUBLIC\ | needs download + extract |
+| Ghidra project | E:\ghidra-projects\uncharted-3\ | created |
+| Test copy | C:\Users\sirac\coop-anything\local\test-install\ | done |
+
+Headless command template:
+```
+E:\tools\ghidra\ghidra_XXX_PUBLIC\support\analyzeHeadless E:\ghidra-projects\uncharted-3 uncharted3 -import <EBOOT_PATH> -processor "PowerPC:BE:64:default" -max-cpu 4
+```
+
 ## Claims & unknowns
 
 - **unknown**: whether two RPCS3 instances can run simultaneously with separate PINE slots
 - **unknown**: player struct offsets in U3's proprietary engine
 - **unknown**: whether campaign data is deterministic enough for memory-sync
 - **unknown**: whether RPCS3 supports multiple instances on one PC
+- **unknown**: correct Ghidra language/spec for PS3 Cell EBOOT.BIN (try PowerPC:BE:64:default first)
