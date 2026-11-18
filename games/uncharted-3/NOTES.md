@@ -75,4 +75,21 @@ E:\tools\ghidra\ghidra_XXX_PUBLIC\support\analyzeHeadless E:\ghidra-projects\unc
 - **unknown**: player struct offsets in U3's proprietary engine
 - **unknown**: whether campaign data is deterministic enough for memory-sync
 - **unknown**: whether RPCS3 supports multiple instances on one PC
-- **unknown**: correct Ghidra language/spec for PS3 Cell EBOOT.BIN (try PowerPC:BE:64:default first)
+- **unknown**: correct Ghidra language/spec for PS3 Cell EBOOT.BIN (PowerPC:BE:64:default works for import)
+
+## What we learned from Ghidra
+
+- EBOOT.BIN imports successfully with `PowerPC:BE:64:default` processor spec
+- No symbol names, no embedded text strings ("player", "health" not found) — normal for raw PS3 binary
+- Game data is in PSARC archives under `USRDIR/build/main/` (actor33.psarc, animstream4.psarc, text1.psarc, etc.)
+- Symbol Tree is empty — need to find player struct via runtime memory scanning, not static analysis
+
+## Next approach: RPCS3 debugger memory scan
+
+1. Launch Uncharted 3 in RPCS3 from test copy
+2. Start a level/mission
+3. Open RPCS3 debugger while game is running
+4. Memory scan for float values that change when player moves (position X/Y/Z)
+5. Narrow down to player position address
+6. Look nearby for health, weapon ID, rotation
+7. Verify addresses are stable across level loads
